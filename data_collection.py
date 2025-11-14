@@ -28,14 +28,14 @@ arduino_port = serial.Serial(port = arduinoport, baudrate = 115200, bytesize = 8
                              parity = serial.PARITY_NONE)  # configure port for use with arduino controller
 arduino_port.flush()  # flush serial buffer
 
-monochromator_port = serial.Serial(port = monochromatorport, baudrate = 9600, bytesize = 8, 
+monochromator_port = serial.Serial(port = spectrometerport, baudrate = 9600, bytesize = 8, 
                                    timeout = 2, stopbits = serial.STOPBITS_ONE, rtscts = True, 
                                    parity = serial.PARITY_NONE)  # configure port for use with monochromator
 monochromator_port.flush()  # flush serial buffer
 
 detector_port = serial.Serial(port = detectorport, baudrate = 115200, bytesize = 8,
                               timeout = 1, stopbits = serial.STOPBITS_ONE, rtscts = True,
-                              parity = serial.PARITY_NONE)  # configure port for use with monochromator
+                              parity = serial.PARITY_NONE)  # configure port for use with detector
 detector_port.flush()  # flush serial buffer
 
 time.sleep(2)  # allow items connected to ports to wake up
@@ -634,4 +634,5 @@ theta_reflected_home_button.grid(column = 4, row = 2, padx = 20, pady = 10)
 
 window.protocol("WM_DELETE_WINDOW", onclose)
 window.mainloop()
+
 
